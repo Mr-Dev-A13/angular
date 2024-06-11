@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './ng-post.component.scss'
 })
 export class NgPostComponent {
-
+  // Interpolation...
+  content = "Command ng generate component (g c)"
 }
