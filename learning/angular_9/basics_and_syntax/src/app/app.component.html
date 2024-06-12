@@ -184,11 +184,14 @@
       <p style="margin-bottom: 10px">Congratulations! Your app is running. 🎉</p>
       <input
         type="text"
-        (input)="onInputHandler($event)"
-        [value]="{{inputValue}}"
-        (keyup)="onKeyUpHandler(input)"
-        #input
+        [(ngModel)] = "inputValue"
       />
+      <!--    Because add NgModel    -->
+      <!--    (input)="onInputHandler($event)"    -->
+      <!--    [value]="inputValue"    -->
+      <!--    (keyup)="onKeyUpHandler(input)"    -->
+      <!--    #input    -->
+
       <button
         style="
           background-color: blanchedalmond;
