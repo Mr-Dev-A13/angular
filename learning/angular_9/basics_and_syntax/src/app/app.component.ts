@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {PostComponent} from "./post/post.component";
+import { FormsModule } from '@angular/forms';
+import { PostComponent } from "./post/post.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, PostComponent, ],
+  imports: [RouterOutlet, PostComponent, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title: string = 'React';
-  inputValue: string = "";
+  inputValue: string = "Type";
   imgPath: string = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcR5U16C8yXgBpl7-Bc7Itjx3_LRl425zINA&s";
 
   constructor () {
@@ -22,7 +23,8 @@ export class AppComponent {
   }
 
   onInputHandler(event: Event) {
-    this.inputValue = (<HTMLInputElement>event.target).value;
+    // this.inputValue = (<HTMLInputElement>event.target).value;
+    this.inputValue = (event.target as HTMLInputElement).value;
   }
 
   onKeyUpHandler(input: any) {
@@ -32,6 +34,4 @@ export class AppComponent {
   onClickHandler () {
     this.inputValue = "";
   }
-
-
 }
