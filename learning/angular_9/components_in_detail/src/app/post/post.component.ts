@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Posts } from "../app.component";
+import { Component, ContentChild, ElementRef, Input, OnInit } from '@angular/core';
+import { Post } from "../app.component";
 
 @Component({
   selector: 'app-post',
@@ -8,6 +8,13 @@ import { Posts } from "../app.component";
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss'
 })
-export class PostComponent {
-  @Input() post?: Posts
+export class PostComponent implements OnInit {
+  @Input() post?: Post;
+  // Static default is false.
+  @ContentChild("postInfoRef", {static: true}) postInfoRef?: ElementRef;
+
+  ngOnInit() {
+    // console.log(this.postInfoRef?.nativeElement)
+  }
+
 }
