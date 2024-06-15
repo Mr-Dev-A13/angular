@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
-import { NgFor } from "@angular/common";
+import {NgFor, NgIf} from "@angular/common";
 
 import { RouterOutlet } from '@angular/router';
 import { PostComponent } from "./post/post.component";
 import { PostFormComponent } from "./post-form/post-form.component";
 
-export interface Posts {
+export interface Post {
   id?: number | string,
   title: string,
   text: string
@@ -20,14 +20,20 @@ export interface Posts {
     PostComponent,
     PostFormComponent,
     NgFor,
+    NgIf
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'components_in_detail';
-  posts: Array<Posts> = [
+  posts: Array<Post> = [
     {id: 1, title: "Component", text: "Angular components are work!"},
     {id: 2, title: "Parameters", text: "Angular parameters are work!"},
-  ]
+  ];
+
+  updatePosts (post: Post) {
+    this.posts.unshift(post);
+  }
+
 }

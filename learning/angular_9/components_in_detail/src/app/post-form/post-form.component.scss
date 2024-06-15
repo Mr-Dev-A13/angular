@@ -1,12 +1,25 @@
 .input-content {
   display: flex;
   flex-direction: column;
+
+  .input {
+    margin-bottom: 5px;
+  }
+
+  .buttons-content {
+    display: flex;
+
+    .add-post {
+      width: 100px;
+    }
+
+    .focus-title {
+      width: 100px;
+      margin-left: 5px;
+    }
+  }
 }
 
-.input {
-  margin-bottom: 5px;
-}
 
-.add-post {
 
-}
+
