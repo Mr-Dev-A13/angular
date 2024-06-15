@@ -1,0 +1,18 @@
+<div class="input-content">
+  <input
+    class="input"
+    type="text"
+    placeholder="Title"
+    [(ngModel)]="title"
+  />
+  <input
+    class="input"
+    type="text"
+    placeholder="Text"
+    [(ngModel)]="text"
+  />
+  <button
+    class="add-post"
+    (click) = "addPost()"
+  >Add Post</button>
+</div>
