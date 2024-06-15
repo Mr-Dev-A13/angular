@@ -1,13 +1,21 @@
 <main class="main">
   <div class="content">
     <h2>Angular Components</h2>
-    <app-post-form></app-post-form>
+    <app-post-form
+      (onAdd)="updatePosts($event)"
+    >
+    </app-post-form>
     <hr/>
     <app-post
       *ngFor="let p of posts"
       [post]="p"
     >
-
+      <div #postInfoRef>
+        <small *ngIf="p.text.length > 10; else lessCharacters">More from 10 characters</small>
+        <ng-template #lessCharacters>
+          <small>Less from 10 characters</small>
+        </ng-template>
+      </div>
     </app-post>
   </div>
 </main>
