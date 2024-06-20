@@ -1,27 +1,31 @@
 import {
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ContentChild,
-  ElementRef,
-  Input,
-  OnInit,
-  OnChanges,
   DoCheck,
-  AfterContentInit,
-  AfterContentChecked,
-  AfterViewInit,
-  AfterViewChecked,
-  OnDestroy,
-  Output,
+  ElementRef,
   EventEmitter,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
+  ViewEncapsulation,
 } from '@angular/core';
-import { Post } from "../app.component";
+import {Post} from "../app.component";
 
 @Component({
   selector: 'app-post',
   standalone: true,
   imports: [],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './post.component.html',
-  styleUrl: './post.component.scss'
+  styleUrl: './post.component.scss',
+  encapsulation: ViewEncapsulation.None
 })
 export class PostComponent implements
   OnInit,
@@ -43,39 +47,39 @@ export class PostComponent implements
   }
 
   constructor() {
-    // console.log("===> Constructor");
+    console.log("===> Constructor");
   };
 
   ngOnChanges(): void {
-    // console.log("===> OnChanges");
+    console.log("===> OnChanges");
   };
 
   ngOnInit(): void {
-    // console.log("===> OnInit");
+    console.log("===> OnInit");
   };
 
   ngDoCheck(): void {
-    // console.log("===> DoCheck");
+    console.log("===> DoCheck");
   };
 
   ngAfterContentInit (): void {
-    // console.log("===> AfterContentInit");
+    console.log("===> AfterContentInit");
   };
 
   ngAfterContentChecked (): void {
-    // console.log("===> AfterContentChecked");
+    console.log("===> AfterContentChecked");
   };
 
   ngAfterViewInit (): void {
-    // console.log("===> AfterViewInit");
+    console.log("===> AfterViewInit");
   };
 
   ngAfterViewChecked (): void {
-    // console.log("===> AfterViewChecked");
+    console.log("===> AfterViewChecked");
   };
 
   ngOnDestroy (): void {
-    // console.log("===> Destroy");
+    console.log("===> Destroy");
   };
 
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import {NgFor, NgIf} from "@angular/common";
 
@@ -25,12 +25,18 @@ export interface Post {
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'components_in_detail';
   posts: Array<Post> = [
     {id: 1, title: "Component", text: "Angular components are work!"},
-    {id: 2, title: "Parameters", text: "Angular parameters are work!"},
+    // {id: 2, title: "Parameters", text: "Angular parameters are work!"},
   ];
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.posts[0].title = "Change!!!";
+    }, 1000);
+  }
 
   updatePosts (post: Post) {
     this.posts.unshift(post);
