@@ -5,7 +5,7 @@ import {Directive, ElementRef, HostBinding, HostListener, Input, Renderer2} from
   standalone: true
 })
 
-export class appStyleDirective {
+export class AppStyleDirective {
   @Input("appStyle") color: string = "blue";
   @Input() dStyles: {border?: string, fontWeight?: string, borderRadius?: string} = {
     border: "2px",
