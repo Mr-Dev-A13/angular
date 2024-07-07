@@ -41,6 +41,7 @@ export class PostComponent implements
   @Output() onRemovePost: EventEmitter<number> = new EventEmitter<number>();
   // Static default is false.
   @ContentChild("postInfoRef", {static: true}) postInfoRef?: ElementRef;
+  
 
   removePost () {
     this.onRemovePost.emit(this.post?.id as number);
