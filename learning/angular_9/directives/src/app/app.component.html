@@ -14,4 +14,26 @@
   }">
     Custom Directive is entered.
   </p>
+
+  <button class="btn" (click)="isVisible = !isVisible">Toggle</button>
+
+<!-- *appIfNot="!isVisible" -->
+<!--  <div class="wrapper" *appIfNot="!isVisible">-->
+<!--    <p class="text">-->
+<!--      Lorem ipsum dolor sit amet, consectetur adipisicing elit.-->
+<!--      Adipisci asperiores at culpa deleniti dolorem illum ipsa-->
+<!--      modi officiis placeat reprehenderit?-->
+<!--    </p>-->
+<!--  </div>-->
+
+<!-- [appIfNot]="!isVisible" -->
+  <ng-template [appIfNot]="!isVisible">
+    <div class="wrapper" >
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Adipisci asperiores at culpa deleniti dolorem illum ipsa
+        modi officiis placeat reprehenderit?
+      </p>
+    </div>
+  </ng-template>
 </main>
