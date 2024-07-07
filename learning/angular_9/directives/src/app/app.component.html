@@ -1,4 +1,17 @@
 <main>
   <h1>Angular {{title | titlecase}}</h1>
-  <p appStyle="red" fontWeight="bold">Custom Directive is entered.</p>
+  <p appStyle="green" [dStyles]="{
+  border: '2px solid red',
+  fontWeight: 'bold',
+  borderRadius: '5px'
+  }">
+    Custom Directive is entered.
+  </p>
+  <p appStyle="green" [dStyles]="{
+  border: '2px solid blue',
+  fontWeight: 'bold',
+  borderRadius: '5px'
+  }">
+    Custom Directive is entered.
+  </p>
 </main>
