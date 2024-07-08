@@ -1,4 +1,8 @@
 <main class="main">
+  <h3>Async</h3>
+  <p>Waiting for promise... {{p | async}}</p>
+  <p>Waiting for Observable... {{dateObs | async | date:"HH:mm:ss - dd, MM, YY"}}</p>
+
   <h3>Number Pipe</h3>
   <p>number:"1.1-4" -> {{e | number:"1.1-4"}}</p>
   <p>number:"3.1-2" -> {{e | number:"3.1-2"}}</p>
@@ -24,6 +28,33 @@
   <p>num | percent -> {{num | percent:"1.2" }}</p>
   <p>obj | json -> {{obj | json }}</p>
   <pre>obj | json -> {{obj | json }}</pre>
+
+  <h3>Custom Number Pipe</h3>
+  <p>num -> {{10 | multiple }}</p>
+  <p>num -> {{10 | multiple:3 }}</p>
+  <p>num -> {{10 | multiple:4 }}</p>
+  <p>num -> {{10 | multiple:5 }}</p>
+
+  <h3>Custom String Pipe</h3>
+  <p>str -> {{"Hello World    " | exMarks }}</p>
+
+  <h3>Posts</h3>
+  <button
+    style="margin-bottom: 10px"
+    (click)="onAddPostItemHandler()"
+  >
+    Add post item
+  </button>
+  <button
+    style="margin-bottom: 10px"
+    (click)="onSearchFieldHandler()"
+  >{{searchField}}</button>
+  <input type="text" [(ngModel)]="search"/>
+  <div class="post-list">
+    <p class="post=list__item" *ngFor="let post of posts | filter:search:searchField">
+      <span>{{post['title']}}</span> -> <span>{{post['text']}}</span>
+    </p>
+  </div>
 </main>
 
 <router-outlet />

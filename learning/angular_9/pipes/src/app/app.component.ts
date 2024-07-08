@@ -1,19 +1,44 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from "@angular/common";
+import { MultipleByPipe } from "./pipes/mult-by.pipe";
+import { ExMarksPipe } from "./pipes/ex-marks.pipe";
+import {FormsModule} from "@angular/forms";
+import {FilterPipe} from "./pipes/filter.pipe";
+import {Observable, Subscriber} from "rxjs";
+
+export interface Posts {
+  [key: string]: string
+}
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet,
-    CommonModule
+    CommonModule,
+    MultipleByPipe,
+    ExMarksPipe,
+    FormsModule,
+    FilterPipe,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'pipes';
+
+  p: Promise<string> = new Promise<string> ((resolve): void => {
+    setTimeout((): void => {
+      resolve("Promise is resolved!");
+    }, 3000);
+  });
+
+  dateObs: Observable<Date> = new Observable((obs: Subscriber<Date>): void => {
+    setInterval((): void => {
+      obs.next(new Date());
+    }, 1000);
+  })
 
   e: number = Math.E;
   str: string = "hello world!"
@@ -29,5 +54,29 @@ export class AppComponent {
         g: 5
       }
     }
+  }
+
+  posts: Posts[] = [
+    {title: "React", text: "is a library"},
+    {title: "Angular", text: "is a framework"},
+    {title: "Svelte", text: "is a compiler"},
+  ];
+
+  searchField: string = "title";
+  search: string = "";
+
+  onSearchFieldHandler () {
+    if (this.searchField === "title") {
+      this.searchField = "text";
+    } else {
+      this.searchField = "title";
+    }
+  }
+
+  onAddPostItemHandler () {
+    this.posts.unshift({
+      title: "Vue",
+      text: "is a framework"
+    })
   }
 }
