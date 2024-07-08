@@ -1,0 +1,29 @@
+<main class="main">
+  <h3>Number Pipe</h3>
+  <p>number:"1.1-4" -> {{e | number:"1.1-4"}}</p>
+  <p>number:"3.1-2" -> {{e | number:"3.1-2"}}</p>
+  <p>number:"1.0-0" -> {{e | number:"1.0-0"}}</p>
+
+  <h3>String Pipe</h3>
+  <p>string | uppercase -> {{str | uppercase }}</p>
+  <p>string | lowercase -> {{str | lowercase }}</p>
+  <p>string | titlecase -> {{str | titlecase }}</p>
+  <p>string | slice -> {{str | slice:1:3 }}</p>
+
+  <h3>Date Pipe</h3>
+  <p>date | date -> {{date | date }}</p>
+  <p>date | date:"fullDate" -> {{date | date:"fullDate" }}</p>
+  <p>date | date:"long" -> {{date | date:"long" }}</p>
+  <p>date | date:"yyyy" -> {{date | date:"yyyy" }}</p>
+  <p>date | date:"MMMM yyyy" -> {{date | date:"MMMM yyyy" }}</p>
+  <p>date | date:"MMMM yyyy" -> {{date | date:"MMMM, dd, yyyy, HH" }}</p>
+
+  <h3>Other Number Pipe</h3>
+  <p>num -> {{num }}</p>
+  <p>num | currency -> {{num | currency }}</p>
+  <p>num | percent -> {{num | percent:"1.2" }}</p>
+  <p>obj | json -> {{obj | json }}</p>
+  <pre>obj | json -> {{obj | json }}</pre>
+</main>
+
+<router-outlet />
