@@ -71,6 +71,9 @@ export class AppComponent {
     } else {
       this.searchField = "title";
     }
+
+
+
   }
 
   onAddPostItemHandler () {
