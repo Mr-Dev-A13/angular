@@ -1,0 +1,13 @@
+<post-title></post-title>
+<p class="post" *ngIf="hideText; else ngText">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+  Aliquid atque cum doloremque eius molestiae natus, quaerat
+  quibusdam quis quod sequi tenetur unde voluptatibus voluptatum.
+  Aperiam aut exercitationem itaque quod suscipit?
+</p>
+<button (click) = "hideText = !hideText" style="margin-top: 5px">
+  Hide {{hideText ? "Lorem Ipsum" : "Ng Text"}}
+</button>
+<ng-template #ngText>
+  <b_and_s-ng-post></b_and_s-ng-post>
+</ng-template>
