@@ -4,7 +4,7 @@ import { TitleComponent } from "./title/title.component";
 import {NgIf} from "@angular/common";
 
 @Component({
-  selector: "app-post",
+  selector: "b_and_s-post",
   standalone: true,
   imports: [NgPostComponent, TitleComponent, NgIf],
   templateUrl: "./post.component.html",
