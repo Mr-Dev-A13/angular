@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-ng-post',
+  selector: 'b_and_s-ng-post',
   standalone: true,
   imports: [],
   templateUrl: './ng-post.component.html',

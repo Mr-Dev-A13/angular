@@ -1,0 +1,36 @@
+<main class="main">
+  <div class="content">
+    <div class="left-side">
+      <img class="dynamic-image" [src]="imgPath" alt="dynamic image"/>
+      <h1>Hello, {{ title }}!</h1>
+      <p style="margin-bottom: 10px">Congratulations! Your app is running. 🎉</p>
+      <input
+        type="text"
+        [(ngModel)] = "inputValue"
+      />
+      <!--    Because add NgModel    -->
+      <!--    (input)="onInputHandler($event)"    -->
+      <!--    [value]="inputValue"    -->
+      <!--    (keyup)="onKeyUpHandler(input)"    -->
+      <!--    #input    -->
+      <button
+        style="
+          background-color: blanchedalmond;
+          margin-left: 5px;
+        "
+        (click)="onClickHandler()"
+      >Clear Input</button>
+    </div>
+    <div class="divider" role="separator" aria-label="Divider"></div>
+    <div>
+      <p><strong>{{inputValue}}</strong></p>
+    </div>
+    <div class="right-side">
+      <div class="pill-group">
+        <b_and_s-post></b_and_s-post>
+        <b_and_s-post></b_and_s-post>
+      </div>
+    </div>
+  </div>
+</main>
+<router-outlet />
