@@ -9,7 +9,7 @@ import { AppCounterService } from "../base-services/services/app-counter.service
   imports: [RouterOutlet, ServicesComponent],
   providers: [AppCounterService],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'angular_9';
