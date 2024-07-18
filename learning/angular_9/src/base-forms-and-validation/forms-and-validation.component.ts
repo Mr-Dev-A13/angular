@@ -27,7 +27,11 @@ export class FormsAndValidationComponent implements OnInit {
       password: new FormControl(null, [
         Validators.minLength(6),
         Validators.required
-      ])
+      ]),
+      address: new FormGroup({
+        country: new FormControl('ru'),
+        city: new FormControl('', Validators.required)
+      })
     });
   }
 
