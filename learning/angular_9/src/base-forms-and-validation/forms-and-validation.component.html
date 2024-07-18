@@ -16,12 +16,16 @@
         <small *ngIf="form.get('email')?.errors?.['required']">
           Enter email address.
         </small>
+
+        <small *ngIf="form.get('email')?.errors?.['restrictedEmail']">
+          Oooops {{form.get('email')?.value}} there is, try other email.
+        </small>
       </div>
     </div>
 
     <div class="form-control">
-      <label>Пароль</label>
-      <input type="password" placeholder="Пароль" formControlName="password">
+      <label>Password</label>
+      <input type="password" placeholder="Password" formControlName="password">
       <div
         class="validation"
         *ngIf="form.get('password')?.invalid && form.get('password')?.touched"
@@ -39,15 +43,15 @@
     </div>
 
     <div class="card" formGroupName="address">
-      <h2>Адрес</h2>
+      <h2>Address</h2>
 
       <div class="form-control">
-        <label>Страна</label>
+        <label>Country</label>
 
         <select formControlName="country">
-          <option value="ru">Россия</option>
-          <option value="ua">Украина</option>
-          <option value="by">Беларусь</option>
+          <option value="am">Armenia</option>
+          <option value="en">England</option>
+          <option value="fr">France</option>
         </select>
       </div>
 
@@ -55,19 +59,26 @@
         <input type="text" formControlName="city" placeholder="City">
       </div>
 
-      <button class="btn" type="button">Выбрать столицу</button>
+      <button class="btn" type="button" (click)="setCapital()">
+        Choose Country
+      </button>
     </div>
 
-    <div class="card">
-      <h2>Ваши навыки</h2>
-      <button class="btn" type="button">Добавить умение</button>
-      <div class="form-control">
-        <label></label>
-        <input type="text">
+    <div class="card" formArrayName="skills">
+      <h2>Your Skills</h2>
+      <button class="btn" type="button" (click)="addSkill()">
+        Add Skills
+      </button>
+      <div
+        class="form-control"
+        *ngFor="let control of getControls().controls; let i = index"
+      >
+        <label>Skill {{i + 1}}</label>
+        <input type="text" >
       </div>
     </div>
 
-    <button class="btn" type="submit" [disabled]="form.invalid">Отправить</button>
+    <button class="btn" type="submit" [disabled]="form.invalid">Send</button>
 
   </form>
 </div>
