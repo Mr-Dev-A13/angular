@@ -5,11 +5,12 @@ import {
   ReactiveFormsModule,
   Validators
 } from "@angular/forms";
+import {NgIf, JsonPipe} from "@angular/common";
 
 @Component({
   selector: 'app-forms-and-validation',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NgIf, JsonPipe],
   templateUrl: './forms-and-validation.component.html',
   styleUrl: './forms-and-validation.component.scss'
 })
