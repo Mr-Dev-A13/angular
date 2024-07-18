@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import {
+  FormArray,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators
 } from "@angular/forms";
-import {NgIf, JsonPipe} from "@angular/common";
+import {NgIf, NgFor, JsonPipe} from "@angular/common";
+import {CustomValidator} from "./validators/custom.validator";
 
 @Component({
   selector: 'app-forms-and-validation',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf, JsonPipe],
+  imports: [ReactiveFormsModule, NgIf, NgFor, JsonPipe],
   templateUrl: './forms-and-validation.component.html',
   styleUrl: './forms-and-validation.component.scss'
 })
@@ -22,23 +24,46 @@ export class FormsAndValidationComponent implements OnInit {
     this.form = new FormGroup({
       email: new FormControl("", [
         Validators.email,
-        Validators.required
+        Validators.required,
+        CustomValidator.restrictedEmails
       ]),
       password: new FormControl(null, [
         Validators.minLength(6),
         Validators.required
       ]),
       address: new FormGroup({
-        country: new FormControl('ru'),
+        country: new FormControl('am'),
         city: new FormControl('', Validators.required)
-      })
+      }),
+      skills: new FormArray([])
     });
   }
 
   submit (): void {
-    console.log("Form submitted ", this.form);
     const formData = {...this.form.value};
+
     console.log(formData);
+  }
+
+  setCapital (): void {
+    const cityMap: {[key: string]: string} = {
+      am: "Yerevan",
+      en: "London",
+      fr: "Paris"
+    };
+
+    const cityKey = this.form.get('address')?.get('country')?.value;
+    const city = cityMap[cityKey];
+    this.form.patchValue({address: {city}});
+  }
+
+  addSkill (): void {
+    const control = new FormControl('', Validators.required);
+    (this.form.get('skills') as FormArray).push(control);
+  }
+
+  getControls () {
+    return this.form.get('skills') as FormArray;
   }
 
 }
