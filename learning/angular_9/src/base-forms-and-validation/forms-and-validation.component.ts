@@ -26,23 +26,26 @@ export class FormsAndValidationComponent implements OnInit {
         Validators.email,
         Validators.required,
         CustomValidator.restrictedEmails
-      ]),
+      ], CustomValidator.uniqEmailAsync),
       password: new FormControl(null, [
         Validators.minLength(6),
         Validators.required
       ]),
       address: new FormGroup({
         country: new FormControl('am'),
-        city: new FormControl('', Validators.required)
+        city: new FormControl("", Validators.required)
       }),
       skills: new FormArray([])
     });
   }
 
   submit (): void {
-    const formData = {...this.form.value};
+    if (this.form.valid) {
+      const formData = {...this.form.value};
+      console.log(formData);
+    }
 
-    console.log(formData);
+    this.form.reset();
   }
 
   setCapital (): void {

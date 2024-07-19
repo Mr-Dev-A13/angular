@@ -20,6 +20,10 @@
         <small *ngIf="form.get('email')?.errors?.['restrictedEmail']">
           Oooops {{form.get('email')?.value}} there is, try other email.
         </small>
+
+        <small *ngIf="form.get('email')?.errors?.['uniqEmail']">
+          {{form.get('email')?.value}} is a uniq email, try other email.
+        </small>
       </div>
     </div>
 
@@ -64,7 +68,7 @@
       </button>
     </div>
 
-    <div class="card" formArrayName="skills">
+    <div class="card" formGroupName="skills">
       <h2>Your Skills</h2>
       <button class="btn" type="button" (click)="addSkill()">
         Add Skills
@@ -74,12 +78,13 @@
         *ngFor="let control of getControls().controls; let i = index"
       >
         <label>Skill {{i + 1}}</label>
-        <input type="text" >
+        <input type="text" [formControlName]="i" >
       </div>
     </div>
 
-    <button class="btn" type="submit" [disabled]="form.invalid">Send</button>
-
+    <button class="btn" type="submit" [disabled]="form.invalid || form.pending">
+      Send
+    </button>
   </form>
 </div>
 
