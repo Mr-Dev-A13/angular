@@ -17,6 +17,7 @@ export class BaseHttpClientComponent implements OnInit {
   todoData: IToDo[] = [];
   todoTitle: string = "";
   loading: boolean = false;
+  error: string = "";
 
   constructor(private todosService: TodosService) {}
 
@@ -30,6 +31,8 @@ export class BaseHttpClientComponent implements OnInit {
       .subscribe(todo => {
         this.todoData = todo;
         this.loading = false;
+      }, error => {
+        this.error = error.message;
       })
   }
 
