@@ -21,7 +21,11 @@
             class="btn btn-danger"
             (click)="removeTodo(todo.id)"
           >Delete</button>
-          <button class="btn" [disabled]="todo.completed">Done</button>
+          <button
+            class="btn"
+            [disabled]="todo.completed"
+            (click)="completedTodo(todo.id)"
+          >Done</button>
         </span>
         </p>
       </div>
