@@ -1,6 +1,6 @@
-import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {delay, Observable} from "rxjs";
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { catchError, delay, Observable, throwError } from "rxjs";
 
 export interface IToDo {
   id?: number,
@@ -14,7 +14,13 @@ export class TodosService {
 
   fetchTodos (): Observable<IToDo[]> {
     return this.http?.get<IToDo[]>("https://jsonplaceholder.typicode.com/todos?_limit=3")
-      .pipe(delay(1500));
+      .pipe(
+        delay(1500),
+        catchError(error => {
+          console.log("Error ===>", error.message);
+          return throwError(error);
+        })
+      );
   }
 
   addTodo (todo: IToDo): Observable<IToDo> {
