@@ -122,11 +122,13 @@ p {
 
 
 input {
-  &.ng-invalid.ng-touched {
-    border: 1px solid red;
-  }
+  outline: none;
 
-  &.ng-valid.ng-touched {
-    border: 1px solid green;
-  }
+  //&.ng-invalid.ng-touched {
+  //  border: 2px solid red;
+  //}
+  //
+  //&.ng-valid.ng-touched {
+  //  border: 2px solid green;
+  //}
 }
