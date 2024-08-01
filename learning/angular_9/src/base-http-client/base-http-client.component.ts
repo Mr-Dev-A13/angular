@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
 import { NgFor, NgIf, TitleCasePipe } from "@angular/common";
 import { FormsModule } from "@angular/forms";
-import { delay } from "rxjs";
-import {IToDo, TodosService} from "./services/todos.service";
+import { IToDo, TodosService } from "./services/todos.service";
 
 @Component({
   selector: 'app-base-http-client',
