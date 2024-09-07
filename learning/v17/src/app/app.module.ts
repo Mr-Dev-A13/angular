@@ -5,8 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from "./home/home.component";
 import { PostsComponent } from "./posts/posts.component";
-import { NgFor } from "@angular/common";
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
