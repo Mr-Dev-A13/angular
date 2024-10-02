@@ -9,7 +9,9 @@ import { RouterModule, Routes } from '@angular/router';
 // import { AboutExtraComponent } from "./routing/about-extra/about-extra.component";
 // import { ErrorPageComponent } from "./routing/error-page/error-page.component";
 // For Modules ===>
-
+import { HomePageComponent } from "./modules/home-page/home-page.component";
+import { AboutPageComponent } from "./modules/about-page/about-page.component";
+import { AboutExtraPageComponent } from "./modules/about-page/about-extra-page/about-extra-page.component";
 
 // Guard
 // import { AuthGuard } from "./routing/auth.guard";
@@ -34,6 +36,14 @@ const routes: Routes = [
   // },
   // { path: "**", component: ErrorPageComponent }
 
+  // For Module ===>
+
+  { path: '', component: HomePageComponent, pathMatch: 'full' },
+  { path: 'about', component: AboutPageComponent, children:
+      [
+        { path: 'extra', component: AboutExtraPageComponent }
+      ]
+  },
 ];
 
 @NgModule({

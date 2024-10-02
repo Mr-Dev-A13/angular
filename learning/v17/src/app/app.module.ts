@@ -12,7 +12,11 @@ import { AppComponent } from './app.component';
 // import { AboutExtraComponent } from "./routing/about-extra/about-extra.component";
 // import { ErrorPageComponent } from './routing/error-page/error-page.component';
 // For Modules ===>
-import {HomePageComponent} from "./modules/home-page/home-page.component";
+import { HomePageComponent } from "./modules/home-page/home-page.component";
+import { AboutPageComponent } from "./modules/about-page/about-page.component";
+import { AboutExtraPageComponent } from "./modules/about-page/about-extra-page/about-extra-page.component";
+import { ColorDirective } from "./modules/shared/color.directive";
+import { PageNamePipe } from "./modules/shared/page-name.pipe";
 
 
 @NgModule({
@@ -26,7 +30,11 @@ import {HomePageComponent} from "./modules/home-page/home-page.component";
     // AboutExtraComponent,
     // ErrorPageComponent,
     // For Modules ===>
-    HomePageComponent
+    HomePageComponent,
+    AboutPageComponent,
+    AboutExtraPageComponent,
+    ColorDirective,
+    PageNamePipe
   ],
   imports: [
     BrowserModule,
