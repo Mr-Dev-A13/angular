@@ -14,7 +14,7 @@ import { AppComponent } from './app.component';
 // For Modules ===>
 import { HomePageComponent } from "./modules/home-page/home-page.component";
 import { AboutPageModule } from "./modules/about-page/about-page.module";
-import { ColorDirectiveModule } from "./modules/shared/shared.module";
+import { SharedModule } from "./modules/shared/shared.module";
 
 
 @NgModule({
@@ -35,7 +35,7 @@ import { ColorDirectiveModule } from "./modules/shared/shared.module";
     AppRoutingModule,
     FormsModule,
     AboutPageModule,
-    ColorDirectiveModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
