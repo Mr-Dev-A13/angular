@@ -13,7 +13,6 @@ import { AppComponent } from './app.component';
 // import { ErrorPageComponent } from './routing/error-page/error-page.component';
 // For Modules ===>
 import { HomePageComponent } from "./modules/home-page/home-page.component";
-import { AboutPageModule } from "./modules/about-page/about-page.module";
 import { SharedModule } from "./modules/shared/shared.module";
 
 
@@ -32,9 +31,8 @@ import { SharedModule } from "./modules/shared/shared.module";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
-    AboutPageModule,
+    AppRoutingModule,
     SharedModule
   ],
   providers: [],
