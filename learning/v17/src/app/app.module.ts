@@ -16,6 +16,7 @@ import { AppComponent } from './app.component';
 // import { SharedModule } from "./modules/shared/shared.module";
 // For Modal ===>
 import { ModalComponent } from "./modal/modal.component";
+import {RefDirective} from "./modal/ref.directive";
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { ModalComponent } from "./modal/modal.component";
     // HomePageComponent,
     // For Modal ===>
     ModalComponent,
+    RefDirective,
   ],
   imports: [
     BrowserModule,
