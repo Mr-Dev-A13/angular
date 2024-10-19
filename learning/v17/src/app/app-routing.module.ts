@@ -35,8 +35,8 @@ const routes: Routes = [
   // { path: "**", component: ErrorPageComponent }
 
   // For Module ===>
-  { path: '', component: HomePageComponent, pathMatch: 'full' },
-  { path: 'about', loadChildren: () => import('./modules/about-page/about-page.module').then(m => m.AboutPageModule) }
+  // { path: '', component: HomePageComponent, pathMatch: 'full' },
+  // { path: 'about', loadChildren: () => import('./modules/about-page/about-page.module').then(m => m.AboutPageModule) }
 ];
 
 @NgModule({
