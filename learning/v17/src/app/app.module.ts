@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from "@angular/forms";
 
@@ -16,7 +16,8 @@ import { AppComponent } from './app.component';
 // import { SharedModule } from "./modules/shared/shared.module";
 // For Modal ===>
 import { ModalComponent } from "./modal/modal.component";
-import {RefDirective} from "./modal/ref.directive";
+import { RefDirective } from "./modal/ref.directive";
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 @NgModule({
@@ -38,6 +39,12 @@ import {RefDirective} from "./modal/ref.directive";
   imports: [
     BrowserModule,
     FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
     // AppRoutingModule,
     // For Modules
     // SharedModule
