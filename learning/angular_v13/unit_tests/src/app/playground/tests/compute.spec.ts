@@ -1,8 +1,6 @@
-import {compute} from "./compute";
-
+import { compute } from "../functions/compute";
 
 describe("compute", () => {
-
   it("should return 0 if returned negative number", () => {
     const result = compute(-1);
     expect(result).toBe(0);
