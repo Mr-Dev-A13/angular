@@ -1,4 +1,4 @@
-import { compute } from "../functions/compute";
+import { compute } from "./compute";
 
 describe("compute", () => {
   it("should return 0 if returned negative number", () => {

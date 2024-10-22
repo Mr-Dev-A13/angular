@@ -1,4 +1,4 @@
-import { getCountries } from "../functions/countries";
+import { getCountries } from "./countries";
 
 describe("Countries", () => {
   it("Should return the countries", () => {

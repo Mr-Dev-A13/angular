@@ -1,4 +1,4 @@
-import { greet } from "../functions/greet";
+import { greet } from "./greet";
 
 describe("Greet function", () => {
 
