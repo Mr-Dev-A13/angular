@@ -1,6 +1,6 @@
 import { CounterComponent } from "./counter.component";
 
-describe("CounterComponent", () => {
+describe("Counter Component", () => {
   let component: CounterComponent;
 
   // beforeAll(), afterEach(), afterAll();
@@ -23,5 +23,5 @@ describe("CounterComponent", () => {
     component.counterEmitter.subscribe(v => result = v);
     component.increment();
     expect(result).toBe(1);
-  })
-})
+  });
+});
