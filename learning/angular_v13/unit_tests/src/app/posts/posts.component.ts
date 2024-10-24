@@ -6,7 +6,7 @@ import { PostsService } from './posts.service';
   selector: 'app-posts'
 })
 export class PostsComponent implements OnInit {
-  posts = []
+  posts: any[] = [];
   message: string | undefined;
 
   constructor(private service: PostsService) {
@@ -19,13 +19,13 @@ export class PostsComponent implements OnInit {
   }
 
   add(title: string) {
-    const post = { title }
-    this.service.create(post).subscribe(() => {
-      this.posts.push(post)
+    const post = { title };
+    this.service.create(post).subscribe(p => {
+      this.posts.push(p)
     }, err => this.message = err)
   }
 
-  delete(id) {
+  delete(id: any) {
     if (window.confirm('Are you sure?')) {
       this.service.remove(id).subscribe()
     }
