@@ -54,4 +54,22 @@ describe('PostsComponent', () => {
     postComponent.add("Error message");
     expect(postComponent.message).toBe(errorMessage);
   });
+
+  it("should remove post if user confirms", () => {
+    const spy = spyOn(postService, 'remove').and.returnValue(EMPTY);
+
+    spyOn(window, "confirm").and.returnValue(true);
+    postComponent.delete(1);
+
+    expect(spy).toHaveBeenCalledWith(1);
+  });
+
+  it("should not remove post if user doesn't confirms", () => {
+    const spy = spyOn(postService, 'remove').and.returnValue(EMPTY);
+
+    spyOn(window, "confirm").and.returnValue(false);
+    postComponent.delete(1);
+
+    expect(spy).not.toHaveBeenCalled();
+  });
 });
