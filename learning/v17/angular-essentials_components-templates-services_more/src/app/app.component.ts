@@ -17,4 +17,8 @@ export class AppComponent {
   users: IDummyUsers[] = DUMMY_USERS;
 
   constructor() {}
+
+  onSelectedId(id: string): void {
+    console.log(id);
+  }
 }
