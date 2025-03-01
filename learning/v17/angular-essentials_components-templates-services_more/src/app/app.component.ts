@@ -1,22 +1,30 @@
-import { Component } from '@angular/core';
-import { HeaderComponent } from "./header/header.component";
-import { UserComponent } from "./user/user.component";
-import { DUMMY_USERS, IDummyUsers } from "./dummy-users";
+import {Component} from '@angular/core';
+import {HeaderComponent} from "./header/header.component";
+import {UserComponent} from "./user/user.component";
+import {DUMMY_USERS, IDummyUsers} from "./dummy-users";
+import {TasksComponent} from "./tasks/tasks.component";
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    HeaderComponent,
-    UserComponent
-  ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+    selector: 'app-root',
+    standalone: true,
+    imports: [
+        HeaderComponent,
+        UserComponent,
+        TasksComponent,
+    ],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css',
 })
 export class AppComponent {
-  users: IDummyUsers[] = DUMMY_USERS;
+    public users: IDummyUsers[] = DUMMY_USERS;
+    public name: IDummyUsers['name'] | undefined = DUMMY_USERS[0].name;
+    private selectedUserId: string = "u1";
 
-  onSelectedId(id: string): void {
-    console.log(id);
-  }
+    get selectedUser(): IDummyUsers {
+        return this.users.find((user: IDummyUsers): boolean => user.id === this.selectedUserId)!;
+    }
+
+    onSelectedUser(id: string): void {
+        this.selectedUserId = id;
+    }
 }
