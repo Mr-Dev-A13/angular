@@ -1,8 +1,9 @@
-import {Component} from '@angular/core';
-import {HeaderComponent} from "./header/header.component";
-import {UserComponent} from "./user/user.component";
-import {DUMMY_USERS, IDummyUsers} from "./dummy-users";
-import {TasksComponent} from "./tasks/tasks.component";
+import { Component } from '@angular/core';
+import { HeaderComponent } from "./header/header.component";
+import { UserComponent } from "./user/user.component";
+import { DUMMY_USERS, IDummyUsers } from "./dummy-users";
+import { TasksComponent } from "./tasks/tasks.component";
+import { NgFor, NgIf } from "@angular/common";
 
 @Component({
     selector: 'app-root',
@@ -11,6 +12,8 @@ import {TasksComponent} from "./tasks/tasks.component";
         HeaderComponent,
         UserComponent,
         TasksComponent,
+        NgFor,
+        NgIf,
     ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
@@ -18,7 +21,7 @@ import {TasksComponent} from "./tasks/tasks.component";
 export class AppComponent {
     public users: IDummyUsers[] = DUMMY_USERS;
     public name: IDummyUsers['name'] | undefined = DUMMY_USERS[0].name;
-    private selectedUserId: string = "u1";
+    private selectedUserId: string | undefined;
 
     get selectedUser(): IDummyUsers {
         return this.users.find((user: IDummyUsers): boolean => user.id === this.selectedUserId)!;
