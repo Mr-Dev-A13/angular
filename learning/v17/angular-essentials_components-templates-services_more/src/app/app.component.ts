@@ -22,7 +22,7 @@ import { type IUser } from "./user/user.model";
 export class AppComponent {
     public users: IUser[] = DUMMY_USERS;
     public name: IUser['name'] | undefined = DUMMY_USERS[0].name;
-    private selectedUserId: string | undefined;
+    public selectedUserId: string | undefined;
 
     get selectedUser(): IUser {
         return this.users.find((user: IUser): boolean => user.id === this.selectedUserId)!;

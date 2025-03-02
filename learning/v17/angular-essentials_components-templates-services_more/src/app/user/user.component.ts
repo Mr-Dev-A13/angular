@@ -24,7 +24,9 @@ export class UserComponent {
     // @Input({required: true}) id!: string;
     // @Input({required: true}) name!: string;
     // @Input({required: true}) avatar!: string;
-    @Input({required: true}) user!: IUser;
+    @Input({ required: true }) user!: IUser;
+    @Input({ required: true }) selected!: boolean;
+
     @Output() select: EventEmitter<string> = new EventEmitter<string>();
     // ---> Function <---
     // select: OutputEmitterRef<string> = output<string>();
