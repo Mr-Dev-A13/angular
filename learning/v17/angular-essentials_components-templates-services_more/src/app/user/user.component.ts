@@ -10,7 +10,7 @@ import {
     output,
     OutputEmitterRef
 } from '@angular/core';
-import {IDummyUsers} from "../dummy-users";
+import { type IUser } from "./user.model";
 
 @Component({
     selector: 'app-user',
@@ -24,7 +24,7 @@ export class UserComponent {
     // @Input({required: true}) id!: string;
     // @Input({required: true}) name!: string;
     // @Input({required: true}) avatar!: string;
-    @Input({required: true}) user!: IDummyUsers;
+    @Input({required: true}) user!: IUser;
     @Output() select: EventEmitter<string> = new EventEmitter<string>();
     // ---> Function <---
     // select: OutputEmitterRef<string> = output<string>();

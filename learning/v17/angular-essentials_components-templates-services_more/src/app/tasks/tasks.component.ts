@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from "./task/task.component";
-import { DUMMY_TASKS, IDummyTasks } from "../dummy-tasks";
+import { DUMMY_TASKS } from "../dummy-tasks";
+import { type ITask } from "./task/task.model";
 
 @Component({
     selector: 'app-tasks',
@@ -14,9 +15,9 @@ import { DUMMY_TASKS, IDummyTasks } from "../dummy-tasks";
 export class TasksComponent {
     @Input({required: true}) userId!: string;
     @Input({ required: true }) name?: string;
-    tasks: IDummyTasks[] = DUMMY_TASKS;
+    tasks: ITask[] = DUMMY_TASKS;
 
-    get selectedUsersTasks(): IDummyTasks[] {
-        return this.tasks.filter((task: IDummyTasks): boolean => task.userId === this.userId)
+    get selectedUsersTasks(): ITask[] {
+        return this.tasks.filter((task: ITask): boolean => task.userId === this.userId)
     }
 }

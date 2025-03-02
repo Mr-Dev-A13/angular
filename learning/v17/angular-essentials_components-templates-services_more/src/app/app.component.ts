@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from "./header/header.component";
 import { UserComponent } from "./user/user.component";
-import { DUMMY_USERS, IDummyUsers } from "./dummy-users";
+import { DUMMY_USERS } from "./dummy-users";
 import { TasksComponent } from "./tasks/tasks.component";
 import { NgFor, NgIf } from "@angular/common";
+import { type IUser } from "./user/user.model";
 
 @Component({
     selector: 'app-root',
@@ -19,12 +20,12 @@ import { NgFor, NgIf } from "@angular/common";
     styleUrl: './app.component.css',
 })
 export class AppComponent {
-    public users: IDummyUsers[] = DUMMY_USERS;
-    public name: IDummyUsers['name'] | undefined = DUMMY_USERS[0].name;
+    public users: IUser[] = DUMMY_USERS;
+    public name: IUser['name'] | undefined = DUMMY_USERS[0].name;
     private selectedUserId: string | undefined;
 
-    get selectedUser(): IDummyUsers {
-        return this.users.find((user: IDummyUsers): boolean => user.id === this.selectedUserId)!;
+    get selectedUser(): IUser {
+        return this.users.find((user: IUser): boolean => user.id === this.selectedUserId)!;
     }
 
     onSelectedUser(id: string): void {

@@ -1,12 +1,6 @@
-export interface IDummyTasks {
-    id: string;
-    userId: string;
-    title: string;
-    summary: string;
-    dueDate: string
-}
+import { type ITask } from "./tasks/task/task.model";
 
-export const DUMMY_TASKS: IDummyTasks[] = [
+export const DUMMY_TASKS: ITask[] = [
     {
         id: 't1',
         userId: 'u1',
