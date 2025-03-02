@@ -10,6 +10,7 @@ import {
     output,
     OutputEmitterRef
 } from '@angular/core';
+import {IDummyUsers} from "../dummy-users";
 
 @Component({
     selector: 'app-user',
@@ -20,9 +21,10 @@ import {
 })
 export class UserComponent {
     // ---> Decorators <---
-    @Input({required: true}) id!: string;
-    @Input({required: true}) name!: string;
-    @Input({required: true}) avatar!: string;
+    // @Input({required: true}) id!: string;
+    // @Input({required: true}) name!: string;
+    // @Input({required: true}) avatar!: string;
+    @Input({required: true}) user!: IDummyUsers;
     @Output() select: EventEmitter<string> = new EventEmitter<string>();
     // ---> Function <---
     // select: OutputEmitterRef<string> = output<string>();
@@ -32,13 +34,13 @@ export class UserComponent {
     // avatar: InputSignal<string> = input.required<string>();
 
     get imagePath(): string {
-        return 'assets/users/' + this.avatar;
+        return 'assets/users/' + this.user.avatar;
     }
 
     // ---> Signal <---
     // imagePath: Signal<string> = computed((): string => 'assets/users/' + this.avatar());
 
     onSelectedUser(): void {
-        this.select.emit(this.id);
+        this.select.emit(this.user.id);
     }
 }
