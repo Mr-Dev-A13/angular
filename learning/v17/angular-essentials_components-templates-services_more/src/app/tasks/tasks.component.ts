@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { TaskComponent } from "./task/task.component";
 import { DUMMY_TASKS } from "../dummy-tasks";
 import { type ITask } from "./task/task.model";
-import {NewTaskComponent} from "./new-task/new-task.component";
+import { NewTaskComponent } from "./new-task/new-task.component";
 
 @Component({
     selector: 'app-tasks',
