@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import {Component, EventEmitter, Output, signal, WritableSignal} from '@angular/core';
 import { FormsModule } from "@angular/forms";
 
 @Component({
@@ -12,6 +12,10 @@ import { FormsModule } from "@angular/forms";
 })
 export class NewTaskComponent {
   @Output() cancel: EventEmitter<boolean> = new EventEmitter<boolean>();
+  // For signal
+  // enteredTitle: WritableSignal<string> = signal("");
+  // enteredSummary: WritableSignal<string> = signal("");
+  // enteredDate: WritableSignal<string> = signal("");
   enteredTitle: string = "";
   enteredSummary: string = "";
   enteredDate: string = "";
