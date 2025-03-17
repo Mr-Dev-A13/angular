@@ -1,5 +1,6 @@
-import {Component, EventEmitter, Output, signal, WritableSignal} from '@angular/core';
+import { Component, EventEmitter, Output, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from "@angular/forms";
+import { type NewTaskData } from "./new-task.model";
 
 @Component({
   selector: 'app-new-task',
@@ -12,6 +13,7 @@ import { FormsModule } from "@angular/forms";
 })
 export class NewTaskComponent {
   @Output() cancel: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() add: EventEmitter<NewTaskData> = new EventEmitter<NewTaskData>();
   // For signal
   // enteredTitle: WritableSignal<string> = signal("");
   // enteredSummary: WritableSignal<string> = signal("");
@@ -22,5 +24,13 @@ export class NewTaskComponent {
 
   onCancel(): void {
     this.cancel.emit(false);
+  }
+
+  onSubmit(): void {
+    this.add.emit({
+      title: this.enteredTitle,
+      summary: this.enteredSummary,
+      date: this.enteredDate,
+    });
   }
 }
