@@ -4,6 +4,7 @@ import { DUMMY_TASKS } from "../dummy-tasks";
 import { type ITask } from "./task/task.model";
 import { NewTaskComponent } from "./new-task/new-task.component";
 import { type NewTaskData } from "./new-task/new-task.model";
+import {TasksService} from "./tasks.service";
 
 @Component({
     selector: 'app-tasks',
@@ -19,14 +20,20 @@ export class TasksComponent {
     @Input({required: true}) userId!: string;
     @Input({ required: true }) name?: string;
     isAddingTask: boolean = false;
-    tasks: ITask[] = DUMMY_TASKS;
+
+    constructor (private _tasksService: TasksService) {}
 
     get selectedUsersTasks(): ITask[] {
-        return this.tasks.filter((task: ITask): boolean => task.userId === this.userId)
+        return this._tasksService.getUserTasks(this.userId);
+    }
+
+    onAddTask(taskData: NewTaskData): void {
+        this._tasksService.addTask(taskData, this.userId);
+        this.isAddingTask = false;
     }
 
     onCompleteTask(id: string): void {
-        this.tasks = this.tasks.filter((task: ITask): boolean => task.id !== id);
+        this._tasksService.deleteTask(id);
     }
 
     onStartAddTask(): void {
@@ -34,17 +41,6 @@ export class TasksComponent {
     }
 
     onCancelAddTask(): void {
-        this.isAddingTask = false;
-    }
-
-    onAddTask(taskData: NewTaskData): void {
-        this.tasks.unshift({
-            id: new Date().getTime().toString(),
-            userId: this.userId,
-            title: taskData.title,
-            summary: taskData.summary,
-            dueDate: taskData.date
-        });
         this.isAddingTask = false;
     }
 }

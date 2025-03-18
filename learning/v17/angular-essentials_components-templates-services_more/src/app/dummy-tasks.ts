@@ -1,6 +1,6 @@
 import { type ITask } from "./tasks/task/task.model";
 
-export const DUMMY_TASKS: ITask[] = [
+export let DUMMY_TASKS: ITask[] = [
     {
         id: 't1',
         userId: 'u1',
