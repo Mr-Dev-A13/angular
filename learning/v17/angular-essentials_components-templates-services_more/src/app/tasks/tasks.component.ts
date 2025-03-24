@@ -26,20 +26,15 @@ export class TasksComponent {
         return this._tasksService.getUserTasks(this.userId);
     }
 
-    onAddTask(taskData: NewTaskData): void {
-        this._tasksService.addTask(taskData, this.userId);
+    onStartAddTask(): void {
+        this.isAddingTask = true;
+    }
+
+    onCloseAddTask(): void {
         this.isAddingTask = false;
     }
 
     onCompleteTask(id: string): void {
         this._tasksService.deleteTask(id);
-    }
-
-    onStartAddTask(): void {
-        this.isAddingTask = true;
-    }
-
-    onCancelAddTask(): void {
-        this.isAddingTask = false;
     }
 }
