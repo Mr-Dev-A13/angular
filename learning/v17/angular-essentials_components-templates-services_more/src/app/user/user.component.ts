@@ -11,7 +11,7 @@ import {
     OutputEmitterRef
 } from '@angular/core';
 import { type IUser } from "./user.model";
-import {CardComponent} from "../shared/card/card.component";
+import { CardComponent } from "../shared/card/card.component";
 
 @Component({
     selector: 'app-user',
