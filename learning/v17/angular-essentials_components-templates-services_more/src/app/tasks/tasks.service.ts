@@ -8,11 +8,19 @@ import type { NewTaskData } from "./new-task/new-task.model";
 export class TasksService {
     private copyDummyTasks: ITask[] = [...DUMMY_TASKS];
 
-    getUserTasks( userId: string ): ITask[] {
+    constructor () {
+        const tasks: string | null = localStorage.getItem("tasks");
+
+        if (tasks) {
+            this.copyDummyTasks = JSON.parse(tasks);
+        }
+    }
+
+    public getUserTasks( userId: string ): ITask[] {
         return this.copyDummyTasks.filter((task: ITask): boolean => task.userId === userId);
     };
 
-    addTask( taskData: NewTaskData, userId: string ): void {
+    public addTask( taskData: NewTaskData, userId: string ): void {
         this.copyDummyTasks.unshift({
             id: new Date().getTime().toString(),
             userId: userId,
@@ -20,9 +28,15 @@ export class TasksService {
             summary: taskData.summary,
             dueDate: taskData.date
         });
+        this.saveTask();
     };
 
-    deleteTask( id: string ): void {
+    public deleteTask( id: string ): void {
         this.copyDummyTasks = this.copyDummyTasks.filter((task: ITask): boolean => task.id !== id);
+        this.saveTask();
     };
+
+    private saveTask(): void {
+        localStorage.setItem("tasks", JSON.stringify(this.copyDummyTasks));
+    }
 }
